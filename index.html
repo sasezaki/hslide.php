@@ -1,6 +1,12 @@
 <html>
 <head>
 <title>hslide.php - はてな記法プレゼンツール</title>
+<style type="text/css">
+.slide-example li {
+    list-style : none;
+    display : inline;
+}
+</style>
 </head>
 <body>
 
@@ -12,8 +18,28 @@
 
 <ul>
     <li>はてな記法によってプレゼンテーションを記述します</li>
-    <li>シンタックスハイライトされたコードを利用できる</li>
-    <li>生のHTMLを埋め込むことができる</li>
+    <li>シンタックスハイライトされたコードを利用できます</li>
+    <li>生のHTMLを埋め込むことができます</li>
+</ul>
+
+<h2>example</h2>
+
+hslide.phpを利用すると以下のようなプレゼンテーションを生成することができます。
+
+<p><a href="http://anatoo.jp/zendenginestudy">拡張ライブラリでなるべく簡単に構文を追加する方法</a></p>
+<ul class="slide-example">
+    <li><a href="img/example/01_01.png"><img src="img/example/01_01.png" width="300" /></a></li>
+    <li><a href="img/example/01_02.png"><img src="img/example/01_02.png" width="300" /></a></li>
+    <li><a href="img/example/01_03.png"><img src="img/example/01_03.png" width="300" /></a></li>
+    <li><a href="img/example/01_04.png"><img src="img/example/01_04.png" width="300" /></a></li>
+</ul>
+
+<p><a href="http://anatoo.jp/phpcon2011">PHPをハックしてオレオレ文法を追加する</a></p>
+<ul class="slide-example">
+    <li><a href="img/example/02_01.png"><img src="img/example/02_01.png" width="300" /></a></li>
+    <li><a href="img/example/02_02.png"><img src="img/example/02_02.png" width="300" /></a></li>
+    <li><a href="img/example/02_03.png"><img src="img/example/02_03.png" width="300" /></a></li>
+    <li><a href="img/example/02_04.png"><img src="img/example/02_04.png" width="300" /></a></li>
 </ul>
 
 <h2>インストール</h2>
@@ -31,6 +57,80 @@ $ git clone git://github.com/anatoo/hslide.php.git
 <h2>スライドを記述する</h2>
 
 <p>インストールしたディレクトリのslidesディレクトリ以下のテキストファイルを編集して下さい。</p>
+
+<p>スライドは、"===="によって区切られます。例えば、以下のように記述すると、作成されるスライドは三枚生成されます。</p>
+
+<pre><code>
+
+* スライド一枚目
+一枚目のスライドです。
+
+====
+
+* スライド二枚目
+二枚目のスライドです。
+
+====
+
+* スライド三枚目
+三枚目のスライドです
+
+</code></pre>
+
+<p>利用できるはてな記法は、以下の一覧です</p>
+
+<table>
+<tr>
+    <th>見出し</th>
+    <td>* 見出し</td>
+</tr>
+<tr>
+    <th>小見出し</th>
+    <td>** 小見出し</td>
+</tr>
+<tr>
+    <th>小々見出し</th>
+    <td>*** 小々見出し</td>
+</tr>
+<tr>
+    <th>リスト</th>
+    <td>- リスト1<br />- リスト2<br />-- ネストされたリスト3</td>
+</tr>
+<tr>
+    <th>順序付きリスト</th>
+    <td>+ リスト1<br />+ リスト2<br />++ ネストされたリスト3</td>
+</tr>
+<tr>
+    <th>定義リスト</th>
+    <td>:言葉:定義</td>
+</tr>
+<tr>
+    <th>pre記法</th>
+    <td>&gt;|<br />改行や空白などがそのまま表示されます<br />|&lt;</td>
+</tr>
+<tr>
+    <th>superpre記法</th>
+    <td>&gt;|php|<br />&lt?php<br />echo 'シンタックスハイライトされたコードを埋め込むことができます';<br />||&lt;</td>
+</tr>
+<tr>
+    <th>リンク</th>
+    <td>[http://google.com:title=google]</td>
+</tr>
+<tr>
+    <th>生のHTMLを埋め込む</th>
+    <td>&gt;|raw|<br />この中では&lt;strong&gt;HTML&lt;/strong&gt;を直接埋め込めます<br/>||&lt;</td>
+</tr>
+</table>
+
+<h2>ライセンス</h2>
+
+<p>hslide.phpは、MITライセンスの元で公開しています。</p>
+
+<h2>作成者</h2>
+
+<p>このツールは、<a href="http://twitter.com/anatoo">@anatoo</a>が作成しました。要望やフィードバックなどあればお待ちしています。</p>
+
+<p></p>
 
 </body>
 </html>
