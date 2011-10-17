@@ -1,14 +1,14 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link type="text/css" href="prettify.css" rel="stylesheet" />
-    <link type="text/css" href="basis.css" rel="stylesheet" />
+    <link type="text/css" href="<?php echo $basePath ?>/prettify.css" rel="stylesheet" />
+    <link type="text/css" href="<?php echo $basePath ?>/basis.css" rel="stylesheet" />
     <title>スライドのタイトル</title>
 </head>
 <body>
 
-<script type="text/javascript" src="jquery-1.4.2.js"></script>
-<script type="text/javascript" src="prettify.js"></script>
+<script type="text/javascript" src="<?php echo $basePath ?>/jquery-1.4.2.js"></script>
+<script type="text/javascript" src="<?php echo $basePath ?>/prettify.js"></script>
 <script type="text/javascript"><!--
 
 var Slide = {

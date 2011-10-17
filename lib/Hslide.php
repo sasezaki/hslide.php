@@ -3,14 +3,28 @@
 class Hslide
 {
 
-    protected $template_path;
+    protected $baseDirectory, $themeName;
 
     /**
      * @param string
+     * @param string
      */
-    function __construct($template_path)
+    function __construct($baseDirectory, $themeName)
     {
-        $this->template_path = $template_path;
+        $this->baseDirectory = $baseDirectory;
+        $this->themeName = $themeName;
+        $this->validateThemeName($themeName);
+    }
+
+    protected function validateThemeName($themeName)
+    {
+        if (!preg_match('/^[[:alpha:]][-[:alnum:]_]*$/', $themeName)) {
+            throw new ErrorException('invalid theme name: ' . $themeName);
+        }
+
+        if (!is_file($this->baseDirectory . '/theme/' . $this->themeName . '/template.php')) {
+            throw new ErrorException('no such theme: ' . $this->themeName);
+        }
     }
 
     /**
@@ -58,8 +72,9 @@ class Hslide
 
     protected function renderTemplate($slides)
     {
+        $basePath = './theme/' . $this->themeName;
         ob_start();
-        include $this->template_path;
+        include $this->baseDirectory . '/theme/' . $this->themeName . '/template.php';
         return ob_get_clean();
     }
 

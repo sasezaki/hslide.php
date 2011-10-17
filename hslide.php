@@ -2,10 +2,15 @@
 require_once dirname(__FILE__) . '/lib/HatenaSyntax.php';
 require_once dirname(__FILE__) . '/lib/Hslide.php';
 
-$slide_text = '';
-foreach (glob(dirname(__FILE__) . '/slides/*.txt') as $path) {
-    $slide_text .= file_get_contents($path);
+$themeName = isset($_GET['theme']) ? $_GET['theme'] : 'default';
+
+$text = '';
+$textFiles = glob(dirname(__FILE__) . '/slide/*.txt');
+natsort($textFiles);
+foreach ($textFiles as $path) {
+    $text .= file_get_contents($path);
 }
 
-$hs = new Hslide(dirname(__FILE__) . '/template.php');
-echo $hs->render($slide_text);
+$hs = new Hslide(dirname(__FILE__), $themeName);
+echo $hs->render($text);
+
