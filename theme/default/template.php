@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link type="text/css" href="<?php echo $basePath ?>/prettify.css" rel="stylesheet" />
     <link type="text/css" href="<?php echo $basePath ?>/basis.css" rel="stylesheet" />
-    <title>スライドのタイトル</title>
+    <title><?php echo escape($title) ?></title>
 </head>
 <body>
 
@@ -171,7 +171,7 @@ $(function() {
 <?php foreach ($slides as $i => $slide): ?>
 
 <div class="slide_wrapper"><div class="slide">
-<?php echo $slide ?>
+<?php echo $slide->getHtml() ?>
 </div></div>
 
 <?php endforeach ?>

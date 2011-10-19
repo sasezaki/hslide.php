@@ -1,4 +1,10 @@
 <?php
+require_once dirname(__FILE__) . '/Hslide/Slide.php';
+
+function escape($str) 
+{
+    return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
+}
 
 class Hslide
 {
@@ -37,11 +43,23 @@ class Hslide
         $config = array(
             'superprehandler' => array($this, 'spreHandler')
         );
+        
+        $title = '';
         foreach ($this->split(HatenaSyntax::parse($text)) as $node) {
-            $slides[] = HatenaSyntax::renderNode($node, $config);
+            $sectionTitle = HatenaSyntax::getSectionTitle($node, $config);
+            if (!strlen($title) && strlen($sectionTitle)) {
+                $title = $sectionTitle;
+            }
+            $slides[] = new Hslide_Slide(
+                HatenaSyntax::renderNode($node, $config),
+                $sectionTitle
+            );
         }
 
-        return $this->renderTemplate($slides);
+        if (!strlen($title)) {
+            $title = 'no title';
+        }
+        return $this->renderTemplate($slides, $title);
     }
 
     /**
@@ -70,7 +88,7 @@ class Hslide
         return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
     }
 
-    protected function renderTemplate($slides)
+    protected function renderTemplate($slides, $title)
     {
         $basePath = './theme/' . $this->themeName;
         ob_start();
