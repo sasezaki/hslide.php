@@ -2,6 +2,15 @@
 require_once dirname(__FILE__) . '/lib/HatenaSyntax.php';
 require_once dirname(__FILE__) . '/lib/Hslide.php';
 
+if (!isset($_GET['theme'])) {
+    $themes = glob(dirname(__FILE__) . '/theme/*');
+    foreach ($themes as $i => $theme) {
+        $themes[$i] = substr($theme, strlen(dirname(__FILE__) . '/theme/'));
+    }
+    require_once dirname(__FILE__) . '/template/index.php';
+    exit;
+}
+
 $themeName = isset($_GET['theme']) ? $_GET['theme'] : 'default';
 
 $text = '';

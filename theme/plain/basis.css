@@ -1,0 +1,183 @@
+body {
+    overflow: hidden;
+    background-color: #ccc;
+    counter-reset: chapter
+    line-height: 1.3;
+    padding: 0px;
+    margin: 0px;
+}
+
+a:link, a:visited {
+    color: #06c;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+#content {
+}
+
+.slide_wrapper {
+    background-color: #fff;
+    box-shadow: 0px 0px 30px #999;
+    display: none;
+    height: 100%;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 95%;
+    margin: 0 2.5%;
+    padding: 0;
+}
+
+.slide {
+    margin: 0 0;
+}
+
+
+.slide .section, .slide .footnote {
+    margin: 0 auto;
+    padding: 0.5em 0.5em 0.5em 0.5em;
+    font-size: 220%;
+    color: #333;
+}
+
+.slide table {
+    font-size: 100%;
+    margin: 0.2em 0;
+}
+
+.slide table td, .slide table th {
+    padding: 0.1em 0.2em;
+    margin: 0.1em;
+    color: #333;
+}
+
+.slide table th {
+    border-radius: 10px;
+    background-color: #eee;
+}
+
+.slide h1, .slide h2, .slide h3, .slide h4 {
+    font-size: 120%;
+    line-height: 1.3;
+    margin: 0;
+    padding: 0.6em 0.2em;
+    font-weight: bolder;
+    text-shadow: 1px 1px 0px #eee, 
+                 1px -1px 0px #eee, 
+                 -1px -1px 0px #eee, 
+                 -1px 1px 0px #eee, 
+                 0px 2px 5px #999;
+    color: #333;
+}
+
+.slide h1 {
+    font-size: 150%;
+    line-height: 1.2;
+    padding: 0.2em 0;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.slide h2 {
+    font-size: 110%;
+    border-bottom: 1px solid #ccc;
+    padding: 0px 0.3em 0px 0.3em;
+    margin: 0.4em auto 0.4em auto;
+}
+
+.slide pre {
+    font-family: 'Courier New', monospace;
+    font-size: 75%;
+    font-weight: bolder;
+}
+
+.slide a {
+    font-size: 80%;
+}
+
+.slide strong {
+    color: #f00;
+    text-shadow: none;
+}
+
+.slide ul, .slide ol {
+    margin: 0.3em 0;
+}
+
+.slide ul li:before {
+    content: "・";
+}
+
+.slide ul li {
+    list-style: none;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    text-indent: -1.2em;
+    margin-left: 0.8em;
+}
+
+.slide ol li {
+    margin-left: 0.9em;
+}
+
+.slide p {
+    padding: 0 0 0 0.5em;
+    font-size: 90%;
+    margin: 0;
+}
+
+.slide div.process {
+    width: 40%;
+    padding: 0.5em, 0.3em;
+    border-radius: 0.4em;
+    background-color: #316745;
+    border: 1px solid #47885e;
+    margin: 0.1em auto;
+    color: #fff;
+    text-align: center;
+}
+
+.slide div.processes {
+    text-align: center;
+}
+
+
+#controller_menu {
+    background-color: #111;
+    border-radius: 5px 0 0 0;
+    bottom: 0px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-family: monospace;
+    font-size: 11px;
+    right: 0px;
+    margin: 0;
+    padding: 2px 0;
+    position: absolute;
+    width: 200px;
+    z-index: 100;
+}
+
+#controller_menu #status {
+    margin-top: 2px;
+    float: right;
+}
+
+#controller_menu input[type=text]{
+    background-color: transparent;
+    border: 0px solid #000;
+    color: #fff;
+    font-size: 11px;
+    text-shadow: 0px 0px 5px #000;
+    width: 80px;
+}
+
+pre {
+    background-color: #eee;
+    padding:2px;
+    border:1px solid #bbb;
+}
